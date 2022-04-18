@@ -6,6 +6,7 @@
     <title>ارسال پیام به واتساپ</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#128C7E" />
     <link href="../assets/css/plugins.bundle.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
     <link href="../assets/css/login.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
     <link href="../assets/css/style.bundle.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
@@ -13,7 +14,7 @@
     <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/loading.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/install.css" rel="stylesheet" type="text/css" />
-    <!-- <link rel="shortcut icon" href="../assets/media/logos/favicon.ico" /> -->
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" />
 
 </head>
 
@@ -44,8 +45,9 @@
                     <div id="install-step1">
                         
                         <form class="form">
+                            <small class="form-text" id="mobileNumberError" style="color: red;"></small>
                             <div class="form-group">
-                                <input id="mobileNumber" name="name" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 input" dir="ltr" type="text" placeholder="شماره همراه" />
+                                <input id="mobileNumber" name="name" value="+98" onkeyup="changeNumber()" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 input" dir="ltr" type="text" placeholder="شماره همراه" />
                                 <small class="form-text">شماره همراه باید با + شروع شود مثال (989192521496+)</small>
                             </div>
                             <div class="form-group">
@@ -80,9 +82,23 @@
     <script src="../assets/js/scripts.js?v=7.0.6"></script>
     <script src="../assets/js/loader.js"></script>
     <script>
+        function changeNumber(){
+            if(mobileNumber.value==''){
+                mobileNumberError.innerHTML='متن پیام می تواند خالی باشد'
+            }
+            else{
+                mobileNumberError.innerHTML=''
+            }
+        }
         function sendNumber() {
-            var link = 'whatsapp://send?phone=' + mobileNumber.value + '&text=' + textMessage.value;
-            window.location.href = link;
+            if(mobileNumber.value==''){
+                mobileNumberError.innerHTML='متن پیام می تواند خالی باشد'
+            }
+            else{
+                mobileNumberError.innerHTML=''
+                var link = 'whatsapp://send?phone=' + mobileNumber.value + '&text=' + textMessage.value;
+                window.location.href = link;
+            }
         }
     </script>
 
