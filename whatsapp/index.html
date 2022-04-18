@@ -1,43 +1,91 @@
-<html>
-    <title>واتساپ</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="../css/main-light-blue.css" type="text/css">
+<!DOCTYPE html>
+<html direction="rtl" dir="rtl" style="direction: rtl">
+
 <head>
+    <meta charset="utf-8" />
+    <title>ارسال پیام به واتساپ</title>
+    <meta name="description" content="Login page example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="../assets/css/plugins.bundle.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/login.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.bundle.rtl.css?v=7.0.6" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/login.css?v=7.0.6" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/loading.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/install.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="shortcut icon" href="../assets/media/logos/favicon.ico" /> -->
+
+</head>
+
+
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <div id="loader" class="loader_body">
+        <div class="loader_logo">
+            <center><img src="../assets/img/logo.png" /></center>
+            <center>
+                <div class="loading"></div>
+            </center>
+            <center>لطفا کمی صبر کنید...</center>
+        </div>
+    </div>
+
+    <div id="body" class="d-flex flex-column flex-root hide">
+
+        <div class="login login-5 login-signin-on d-flex flex-row-fluid" id="kt_login">
+            <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url(../assets/img/bg-login.jpg);">
+                <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
+                    <div>
+                        <a href="#">
+                            <img src="../assets/img/logo-login.png" class="max-h-75px" alt="" />
+                        </a>
+                        <h3 class="opacity-40 font-weight-normal">ارسال پیام به واتساپ</h3>
+                        <br>
+                    </div>
+                    <div id="install-step1">
+                        
+                        <form class="form">
+                            <div class="form-group">
+                                <input id="mobileNumber" name="name" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 input" dir="ltr" type="text" placeholder="شماره همراه" />
+                                <small class="form-text">شماره همراه باید با + شروع شود مثال (989192521496+)</small>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="textMessage" name="message" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 input" placeholder="متن پیام" rows="2"></textarea>
+                                <small class="form-text">متن پیام می تواند خالی باشد</small>
+                            </div>
+                            <div class="form-group text-center mt-10">
+                                <input type="button" class="btn btn-shadow btn-pill btn-primary opacity-90 px-15 py-3" value="ارسال پیام" onclick="sendNumber()" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div id="loading" class="modalLoading">
+        <div class="page-center">
+            <center><img src="../assets/img/logo.png" /></center>
+            <center>
+                <div class="loading"></div>
+            </center>
+            <center>لطفا کمی صبر کنید...</center>
+        </div>
+    </div>
+    <script src=".../assets/js/plugins.bundle.js?v=7.0.6"></script>
+    <script src="../assets/js/scripts.bundle.js?v=7.0.6"></script>
+    <script src="../assets/js/scripts.js?v=7.0.6"></script>
+    <script src="../assets/js/loader.js"></script>
     <script>
-        function sendNumber(){
+        function sendNumber() {
             var link = 'whatsapp://send?phone=' + mobileNumber.value + '&text=' + textMessage.value;
             window.location.href = link;
         }
     </script>
-</head>
-<style>
-input[dir="ltr"]
-{
-  text-align: left !important;
-}  
-input[dir="ltr"]::placeholder
-{
-  text-align: right;
-}
-</style>
-<body>
-   <div class="container">
-       <br><br>
-    <div class="form-group form-group-with-icon">
-        <i class="fa fa-phone"></i>
-        <input id="mobileNumber" type="text" name="name" class="form-control ltr_text" dir="ltr" placeholder="شماره همراه (مثال 989192521496+)">
-        <div class="form-control-border"></div>
-        <div class="help-block with-errors"></div>
-    </div>
-    <div class="form-group form-group-with-icon">
-        <i class="fa fa-comment"></i>
-        <textarea id="textMessage" name="message" class="form-control" placeholder="متن پیام" rows="4"></textarea>
-        <div class="form-control-border"></div>
-        <div class="help-block with-errors"></div>
-    </div>
-    <div class="form-group form-group-with-icon">
-        <input type="button" class="btn btn-success" value="ارسال پیام" onclick="sendNumber()" />
-    </div>
-   </div>
+
 </body>
+
 </html>

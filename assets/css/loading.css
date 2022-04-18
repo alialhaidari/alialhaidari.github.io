@@ -1,0 +1,23 @@
+.modalLoading {
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: Black;
+  filter: alpha(opacity=20);
+  opacity: 0.8;
+  -moz-opacity: 0.2;
+  display: none;
+  color:white;
+}
+
+
+.page-center {
+  background-color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%)
+}
